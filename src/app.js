@@ -2,10 +2,15 @@ const express = require("express");
 const { connectionDB } = require("./db")
 const app = express();
 const {userRouter} = require("./routes/user.route")
+const cookies = require("cookie-parser");
+const { profileRouter } = require("./routes/profile.route");
+
 
 app.use(express.json())
+app.use(cookies())
 
 app.use("/users", userRouter)
+app.use("/", profileRouter)
 
 connectionDB
 .then(() => {
