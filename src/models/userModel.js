@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     email: {type: String, required : true, unique: true},
     password: {type: String, required: true},
     age: {type: Number, required: false, min: [18, "Not a valid age"], max: [50, "Age not eligible"]},
-    skills: {type: [], required: false}
+    skills: {type: [String], required: false}
 })
 
 const UserModel = mongoose.model("User", userSchema)
